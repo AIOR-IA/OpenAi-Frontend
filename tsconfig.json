@@ -6,7 +6,7 @@
     "paths": {
       "@components/*": ["app/presentation/components/*"],
       "@use-cases/*": ["app/core/use-cases/*"],
-      "@interfaces/*": ["app/presentation/components/*"],
+      "@interfaces/*": ["app/interfaces/*"],
     },
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,

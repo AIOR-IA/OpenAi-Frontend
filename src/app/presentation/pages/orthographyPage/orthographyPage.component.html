@@ -12,4 +12,16 @@
     </div>
 
   </div>
+
+  <!-- Message-Box -->
+  <!-- <app-text-message-box
+  placeholder="Write your question" (onMessage)="handleMessage($event)"/> -->
+
+  <!-- <app-text-message-box-file
+  placeholder="Write your question" (onMessage)="handleMessageWithFile($event)"/> -->
+
+  <app-text-message-box-select
+  placeholder="Write your question"
+  [options]="[{ id: '1', text: '1'},{ id: '2', text: '2'}]"
+  (onMessage)="handleMessageWithSelect($event)"/>
 </div>
