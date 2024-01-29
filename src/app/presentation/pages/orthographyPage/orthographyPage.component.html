@@ -5,23 +5,40 @@
 
       <app-chat-message text="Write your message"/>
 
+      @for (message of messages(); track $index) {
+        @if ( message.isGpt ) {
+          <app-gpt-message-orthography
+            [text]="message.text"
+            [errors]="message.info!.errors"
+            [userScore]="message.info!.userScore"
 
-      <app-my-message text="Hi World"/>
 
-      <app-typing-loader />
+          />
+        } @else {
+          <app-my-message [text]="message.text" />
+        }
+      }
+
+      @if (isLoading()) {
+        <app-typing-loader />
+      }
+
     </div>
 
   </div>
 
   <!-- Message-Box -->
-  <!-- <app-text-message-box
-  placeholder="Write your question" (onMessage)="handleMessage($event)"/> -->
+  <app-text-message-box
+    placeholder="Write your question"
+    (onMessage)="handleMessage($event)"
+    [disableCorrections]="true"
+  />
 
   <!-- <app-text-message-box-file
   placeholder="Write your question" (onMessage)="handleMessageWithFile($event)"/> -->
 
-  <app-text-message-box-select
+  <!-- <app-text-message-box-select
   placeholder="Write your question"
   [options]="[{ id: '1', text: '1'},{ id: '2', text: '2'}]"
-  (onMessage)="handleMessageWithSelect($event)"/>
+  (onMessage)="handleMessageWithSelect($event)"/> -->
 </div>
