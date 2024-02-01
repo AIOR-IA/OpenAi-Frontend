@@ -3,7 +3,7 @@
 
     <div class="grid gap-y-2">
 
-      <app-chat-message text="Write your message"/>
+      <app-chat-message text="Escribe tu mensaje"/>
 
       @for (message of messages(); track $index) {
         @if ( message.isGpt ) {
